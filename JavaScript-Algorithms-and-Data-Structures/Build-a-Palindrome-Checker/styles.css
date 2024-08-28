@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+ * {
+		font-family: "Poppins", sans-serif;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	.center-wrapper {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.flex-col {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.flex-row {
+		display: flex;
+		flex-direction: row;
+	}
+
+	html {
+		font-size: 62.5%;
+	}
+
+	body {
+		height: 100vh;
+		min-height: 50rem;
+	}
+
+	h1 {
+		font-size: 5rem;
+		font-weight: 900;
+	}
+
+	h1 span {
+		margin-left: -6px;
+	}
+
+	label {
+		width: 35%;
+		position: relative;
+		max-width: 50rem;
+		min-width: 35rem;
+	}
+
+	input[type="text"] {
+		margin-top: 2rem;
+		height: 3.7rem;
+		width: 100%;
+		border-radius: 1.8rem;
+		border: none;
+		background: #cfcfdf;
+		padding-left: 1.5rem;
+		outline: none;
+	}
+
+	button {
+		position: absolute;
+		right: 1.5%;
+		top: 35%;
+		border-radius: 50%;
+		height: 3.7rem;
+		width: 3.7rem;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	button:hover {
+		color: #0070de;
+	}
+
+	#info {
+		padding: 2rem;
+		border-radius: 0.7rem;
+		margin-top: 3rem;
+		width: 34.5%;
+		max-width: 50rem;
+		height: auto;
+		background:#a6c7ff;
+		min-width: 35rem;
+	}
+
+	#info p {
+		font-size: 1.4rem;
+	}
+
+	.hide {
+		display: none;
+	}
+
+	@media screen and (max-width: 480px) {
+		h1 {
+			font-size: 4rem;
+		}
+
+		#info, label {
+			min-width: 30rem;
+		}
+	}
