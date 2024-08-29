@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pokemon Search</title>
+  </head>
+  <body class="flex-col">
+    <header></header>
+    <section>
+      <div class="searchbar">
+        <label class="flex-row">
+          <input id="search-input" type="text" placeholder="Search Pokemon or ID" required>
+          <button id="search-button">Search </label>
+      </div>
+      <div class="pokemon-display">
+        <div class="pokemon-info flex-row">
+          <img id="sprite">
+          <p id="pokemon-name"></p>
+          <p>,</p>
+          <p id="pokemon-id"></p>
+        </div>
+        <div id="pokemon-stats" class="flex-row"></div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
