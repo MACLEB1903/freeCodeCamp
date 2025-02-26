@@ -17,6 +17,7 @@ html {
   font-size: 62.5%;
 }
 
-#rightt-quote {
-  background: red;
+p,
+a {
+  font-size: 1.6rem;
 }
