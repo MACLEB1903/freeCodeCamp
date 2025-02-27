@@ -3,6 +3,7 @@
 
 @theme {
   --font-poppins: "Poppins", serif;
+  --color-custom-black: #131313;
 }
 
 * {
@@ -20,4 +21,23 @@ html {
 p,
 a {
   font-size: 1.6rem;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button {
+  overflow: hidden;
+}
+
+#heart-btn {
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+
+#heart-btn:hover,
+#heart-btn:active {
+  transform: scale(1.3);
 }
