@@ -33,10 +33,16 @@ export default function DataFetcher() {
     }
   };
 
-  console.log(isFetching);
   return (
     <>
-      <button id="new-quote" onClick={fetchQuote} disabled={isFetching}>
+      <button
+        id="new-quote"
+        onClick={fetchQuote}
+        disabled={isFetching}
+        style={{
+          cursor: isFetching ? "no-drop" : "pointer",
+        }}
+      >
         <NextIcon />
       </button>
     </>

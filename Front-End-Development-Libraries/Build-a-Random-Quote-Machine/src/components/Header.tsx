@@ -23,8 +23,6 @@ export default function Header() {
     headerBackground = "transparent";
   }
 
-  console.log(headerBackground);
-
   return (
     <header
       className="h-[6rem] fixed left-0 right-0 top-0 px-[2rem] z-[100] md:bg-red lg:px-[3rem]"
