@@ -13,19 +13,15 @@ export default function Header() {
 
   let headerBackground = "";
   if (fillColor === "#ffffff") {
-    headerBackground = "#131313";
+    headerBackground = "transparent";
   }
   if (fillColor === "#43644b") {
     headerBackground = "#f0eee7";
   }
-  if (fillColor === "#f2f2f2") {
-    headerBackground = "transparent";
-  }
 
-  console.log(headerBackground, fillColor);
   return (
     <header
-      className="h-[6rem] fixed left-0 right-0 top-0 px-[2rem] md:bg-red lg:px-[3rem]"
+      className="h-[6rem] fixed left-0 right-0 top-0 px-[2rem] z-[100] md:bg-red lg:px-[3rem]"
       style={{ background: headerBackground }}
     >
       <div className="flex items-center h-full">

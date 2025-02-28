@@ -8,22 +8,26 @@ type QuoteObjType = {
 
 type QuotesContextType = {
   quote: QuoteObjType;
-  theme: "random" | "dark" | "light" | "image";
-  fillColor: string;
   isFetching: boolean;
-  setQuote: (quote: QuoteObjType) => void;
-  setTheme: (theme: "dark" | "light" | "image" | "random") => void;
-  setIsFetching: (isFetching: boolean) => void;
+  theme: "random" | "dark" | "light" | "image";
+  fillColor: "#ffffff" | "#43644b";
+  setQuote: React.Dispatch<React.SetStateAction<QuoteObjType>>;
+  setTheme: React.Dispatch<
+    React.SetStateAction<"random" | "dark" | "light" | "image">
+  >;
+  setIsFetching: React.Dispatch<React.SetStateAction<boolean>>;
+  setFillColor: React.Dispatch<React.SetStateAction<"#ffffff" | "#43644b">>;
 };
 
 const defaultContextValue: QuotesContextType = {
   quote: { id: null, quote: null, author: null },
   theme: "dark",
-  fillColor: "ffffff",
+  fillColor: "#ffffff",
   isFetching: false,
   setIsFetching: () => {},
   setQuote: () => {},
   setTheme: () => {},
+  setFillColor: () => {},
 };
 
 export const QuotesContext =
@@ -35,7 +39,8 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<"random" | "dark" | "light" | "image">(
     defaultContextValue.theme
   );
-  const [fillColor, setFillColor] = useState<string>(
+
+  const [fillColor, setFillColor] = useState<"#ffffff" | "#43644b">(
     defaultContextValue.fillColor
   );
 
@@ -47,7 +52,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
       setFillColor("#43644b");
     }
     if (theme === "image") {
-      setFillColor("#f2f2f2");
+      setFillColor("#ffffff");
     }
   }, [theme]);
 
@@ -55,12 +60,13 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
     document.body.style.backgroundImage = "";
     document.body.classList.remove("bg-image");
 
-    if (theme === "dark") {
+    if (fillColor === "#ffffff") {
       document.body.style.background = "#131313";
-    } else if (theme === "light") {
+    }
+    if (fillColor === "#43644b") {
       document.body.style.background = "#f0eee7";
     }
-  }, [theme]);
+  }, [fillColor]);
 
   const URL = "https://dummyjson.com/quotes/random";
 
@@ -80,7 +86,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
         author: data.author,
       });
     } catch (e) {
-      console.error("Failed to fetch quote:", e.message);
+      console.error("Failed to fetch quote:", e);
     } finally {
       setIsFetching(false);
     }
@@ -100,6 +106,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
         fillColor,
         isFetching,
         setIsFetching,
+        setFillColor,
       }}
     >
       {children}
