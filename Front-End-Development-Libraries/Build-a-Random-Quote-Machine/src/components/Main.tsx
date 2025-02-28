@@ -11,7 +11,7 @@ import ShareIcon from "../components/icons/Share";
 import LoadingIcon from "../components/icons/Loading";
 
 export default function Main() {
-  const { theme, isFetching, setFillColor } = useContext(QuotesContext);
+  const { theme, isFetching, quote, setFillColor } = useContext(QuotesContext);
 
   if (!theme) {
     throw new Error("DataFetcher must be used within a QuotesProvider");
@@ -28,10 +28,10 @@ export default function Main() {
       <ImageTheme key="image" />,
     ];
 
-    const themesColors: ("#ffffff" | "#43644b")[] = [
+    const themesColors: ("#ffffff" | "#43644b" | "#f9f9f9")[] = [
       "#ffffff",
       "#43644b",
-      "#ffffff",
+      "#f9f9f9",
     ];
 
     if (theme === "random") {
@@ -68,7 +68,13 @@ export default function Main() {
         >
           <ThemeUpdaterButton />
           <button id="share-btn">
-            <ShareIcon />
+            <a
+              id="tweet-quote"
+              target="_blank"
+              href={`https://x.com/intent/tweet?text=${quote.quote}`}
+            >
+              <ShareIcon />
+            </a>
           </button>
           <FetchButton />
         </div>

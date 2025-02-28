@@ -13,11 +13,17 @@ export default function Header() {
 
   let headerBackground = "";
   if (fillColor === "#ffffff") {
-    headerBackground = "transparent";
+    headerBackground = "#131313";
   }
   if (fillColor === "#43644b") {
     headerBackground = "#f0eee7";
   }
+
+  if (fillColor === "#f9f9f9") {
+    headerBackground = "transparent";
+  }
+
+  console.log(headerBackground);
 
   return (
     <header

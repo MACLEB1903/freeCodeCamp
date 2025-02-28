@@ -10,13 +10,15 @@ type QuotesContextType = {
   quote: QuoteObjType;
   isFetching: boolean;
   theme: "random" | "dark" | "light" | "image";
-  fillColor: "#ffffff" | "#43644b";
+  fillColor: "#ffffff" | "#43644b" | "#f9f9f9";
   setQuote: React.Dispatch<React.SetStateAction<QuoteObjType>>;
   setTheme: React.Dispatch<
     React.SetStateAction<"random" | "dark" | "light" | "image">
   >;
   setIsFetching: React.Dispatch<React.SetStateAction<boolean>>;
-  setFillColor: React.Dispatch<React.SetStateAction<"#ffffff" | "#43644b">>;
+  setFillColor: React.Dispatch<
+    React.SetStateAction<"#ffffff" | "#43644b" | "#f9f9f9">
+  >;
 };
 
 const defaultContextValue: QuotesContextType = {
@@ -40,7 +42,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
     defaultContextValue.theme
   );
 
-  const [fillColor, setFillColor] = useState<"#ffffff" | "#43644b">(
+  const [fillColor, setFillColor] = useState<"#ffffff" | "#43644b" | "#f9f9f9">(
     defaultContextValue.fillColor
   );
 
@@ -52,7 +54,7 @@ export const QuotesProvider = ({ children }: { children: ReactNode }) => {
       setFillColor("#43644b");
     }
     if (theme === "image") {
-      setFillColor("#ffffff");
+      setFillColor("#f9f9f9");
     }
   }, [theme]);
 
