@@ -64,7 +64,7 @@ export default function Main() {
         </div>
         <div
           id="actions-wrapper"
-          className="pt-[3rem] pb-[3rem] flex flex-row gap-[2rem] md:gap-[2.5rem] lg:justify-center lg:gap-[3rem]"
+          className="pt-[3rem] pb-[3rem] flex flex-row gap-[3rem] md:gap-[4rem] lg:justify-center lg:gap-[5rem]"
         >
           <ThemeUpdaterButton />
           <button id="share-btn">
