@@ -71,7 +71,7 @@ export default function Main() {
             <a
               id="tweet-quote"
               target="_blank"
-              href={`https://x.com/intent/tweet?text=${quote.quote}`}
+              href={`https://twitter.com/intent/tweet?text=${quote.quote}`}
             >
               <ShareIcon />
             </a>
