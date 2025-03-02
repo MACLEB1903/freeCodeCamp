@@ -1,10 +1,12 @@
 import Header from "../Header";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import History from "../History";
 
 export default function Standard() {
   const { fillColor, backgroundColor } = useContext(ThemeContext)!;
   const [history, setHistory] = useState<null | string[]>(null);
+  const [isHistoryActive, setHistoryActive] = useState<boolean>(false);
 
   const [value, setValue] = useState<number | string>(0);
   const [equation, setEquation] = useState({
@@ -125,7 +127,7 @@ export default function Standard() {
     <section className="flex flex-row h-screen">
       {/* Main Calculator */}
       <div className="flex flex-col flex-1 min-h-screen">
-        <Header title={"Standard"} />
+        <Header title={"Standard"} setHistoryActive={setHistoryActive} />
         <div className="calculator flex flex-row h-[calc(100vh-5rem)] w-full">
           <div className="display-keys-wrapper flex flex-col h-full flex-1">
             {/* Display */}
@@ -143,24 +145,31 @@ export default function Standard() {
               </h1>
             </div>
 
-            {/* Keyboard */}
-            <div
-              className="keyboard flex-1 grid grid-cols-4 grid-rows-5 gap-[2rem] p-[2rem]"
-              style={{ backgroundColor: "#b8f3d8" }}
-            >
-              {keys.map((key, index) => (
-                <button
-                  key={index}
-                  className={`p-4 bg-white font-black text-3xl rounded-2xl border-3 border-b-[5px] border-r-[5px] md:text-4xl lg:text-5xl xl:border-5 xl:border-b-[7px] xl:border-r-[7px] ${
-                    index === keys.length - 1 ? "col-span-2 bg-blue-500" : ""
-                  }`}
-                  style={{ color: fillColor, background: backgroundColor }}
-                  value={key}
-                  onClick={() => calculateEquation(key)}
-                >
-                  {key}
-                </button>
-              ))}
+            <div className="relative flex-1 h-[100%]">
+              <div
+                className="keyboard flex-1 grid grid-cols-4 grid-rows-5 gap-[2rem] p-[2rem]  h-[100%] z-98"
+                style={{ backgroundColor: "#b8f3d8" }}
+              >
+                {keys.map((key, index) => (
+                  <button
+                    key={index}
+                    className={`p-4 bg-white font-black text-3xl rounded-2xl border-3 border-b-[5px] border-r-[5px] md:text-4xl lg:text-5xl xl:border-5 xl:border-b-[7px] xl:border-r-[7px] ${
+                      index === keys.length - 1 ? "col-span-2 bg-blue-500" : ""
+                    }`}
+                    style={{ color: fillColor, background: backgroundColor }}
+                    value={key}
+                    onClick={() => calculateEquation(key)}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+
+              {isHistoryActive && (
+                <div className="absolute top-0 z-99 h-[100%] w-[100%] md:hidden">
+                  <History history={history} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -168,22 +177,10 @@ export default function Standard() {
 
       {/* History Panel */}
       <div
-        className="history hidden max-w-[40rem] min-w-[30rem] md:block h-full basis-[25%] p-[2rem] pb-[1rem] overflow-scroll overflow-x-hidden"
+        className="history hidden max-w-[40rem] min-w-[30rem] md:block h-full basis-[25%] overflow-scroll overflow-x-hidden"
         style={{ backgroundColor: fillColor }}
       >
-        <h2 className="text-4xl" style={{ color: backgroundColor }}>
-          History
-        </h2>
-        <div className="history">
-          {history?.map((h) => (
-            <p
-              className="text-[2rem] text-right mt-[0.57rem]"
-              style={{ color: backgroundColor }}
-            >
-              {h}
-            </p>
-          ))}
-        </div>
+        <History history={history} />
       </div>
     </section>
   );

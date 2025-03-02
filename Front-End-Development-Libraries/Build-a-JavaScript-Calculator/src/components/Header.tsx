@@ -6,9 +6,10 @@ import HistoryIcon from "./icons/History";
 
 interface HeaderProps {
   title: string;
+  setHistoryActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Header({ title }: HeaderProps) {
+export default function Header({ title, setHistoryActive }: HeaderProps) {
   const { fillColor } = useContext(ThemeContext)!;
 
   return (
@@ -19,7 +20,10 @@ export default function Header({ title }: HeaderProps) {
       <h1 className="text-3xl flex-1 font-bold" style={{ color: fillColor }}>
         {title}
       </h1>
-      <button className="md:hidden">
+      <button
+        className="md:hidden"
+        onClick={() => setHistoryActive((prev) => !prev)}
+      >
         <HistoryIcon />
       </button>
     </header>
