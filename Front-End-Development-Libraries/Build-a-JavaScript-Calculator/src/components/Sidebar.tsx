@@ -18,7 +18,7 @@ export default function Sidebar({ setisSidebarActive }: SideBarProps) {
     useContext(ThemeContext)!;
   return (
     <aside
-      className="absolute flex  flex-col top-0 min-w-[25rem] h-[100vh] z-100  p-[1rem]"
+      className="absolute flex  flex-col top-0 min-w-[25rem] h-[100svh] z-100  p-[1rem]"
       style={{ background: fillColor, color: backgroundColor }}
     >
       <button onClick={() => setisSidebarActive((prev) => !prev)}>
