@@ -8,7 +8,7 @@ export default function History({ history }: historyProps) {
   const { fillColor, backgroundColor } = useContext(ThemeContext)!;
   return (
     <div
-      className="w-[100%] h-[100%]  p-[2rem] pb-[1rem]"
+      className="hisotry w-[100%] h-[100%]  p-[2rem] pb-[1rem]"
       style={{ background: fillColor }}
     >
       <h2 className="text-4xl" style={{ color: backgroundColor }}>

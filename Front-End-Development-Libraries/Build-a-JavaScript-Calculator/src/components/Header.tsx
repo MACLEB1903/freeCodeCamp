@@ -25,7 +25,10 @@ export default function Header({
       >
         <MenuIcon />
       </button>
-      <h1 className="text-3xl flex-1 font-bold" style={{ color: fillColor }}>
+      <h1
+        className="text-[2.3rem] flex-1 font-bold"
+        style={{ color: fillColor }}
+      >
         {title}
       </h1>
       <button

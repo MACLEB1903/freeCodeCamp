@@ -16,3 +16,31 @@ button,
 a {
   cursor: pointer;
 }
+
+aside {
+  animation: slideRight 0.5s;
+}
+
+.hisotry {
+  animation: slideUp 0.3s;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-3rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(3rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

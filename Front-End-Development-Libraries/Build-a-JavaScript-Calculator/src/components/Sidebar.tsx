@@ -27,19 +27,22 @@ export default function Sidebar({ setisSidebarActive }: SideBarProps) {
       <nav className="flex-1">
         {calculatorMode.map((mode, i) => (
           <button
-            className="block text-2xl my-[2rem] flex flex-row items-center gap-[0.5rem] w-[100%]"
+            className="block text-2xl my-[2rem] flex flex-row items-center gap-[0.75rem] w-[100%]"
             style={{ color: backgroundColor }}
           >
             <span> {modeIcons[i]}</span>
-            <span> {mode}</span>
+            <span className="text-[2rem] font-semibold"> {mode}</span>
           </button>
         ))}
       </nav>
       <nav>
         <button
-          className="block text-2xl my-[2rem] flex flex-row items-center gap-[0.5rem] w-[100%]"
+          className="block text-2xl my-[1rem] flex flex-row items-center gap-[0.5rem] w-[100%]"
           style={{ color: backgroundColor }}
-          onClick={() => setTheme(() => (theme === "light" ? "dark" : "light"))}
+          onClick={() => {
+            setisSidebarActive(false);
+            setTheme(() => (theme === "light" ? "dark" : "light"));
+          }}
         >
           {theme === "light" && (
             <span>
