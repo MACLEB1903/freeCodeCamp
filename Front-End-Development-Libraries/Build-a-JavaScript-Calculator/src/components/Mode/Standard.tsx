@@ -83,12 +83,19 @@ export default function Standard() {
         case ".":
           if (prev.operator) {
             if (prev.operand2?.toString().includes(".")) return prev;
-            const newVal = prev.operand2 != null ? `${prev.operand2}.` : "0.";
+
+            const newVal =
+              prev.operand2 != null
+                ? parseFloat(`${prev.operand2}.`)
+                : parseFloat("0.");
             setValue(newVal);
             return { ...prev, operand2: newVal };
           } else {
             if (prev.operand1?.toString().includes(".")) return prev;
-            const newVal = prev.operand1 != null ? `${prev.operand1}.` : "0.";
+            const newVal =
+              prev.operand1 != null
+                ? parseFloat(`${prev.operand1}.`)
+                : parseFloat("0.");
             setValue(newVal);
             return { ...prev, operand1: newVal };
           }
