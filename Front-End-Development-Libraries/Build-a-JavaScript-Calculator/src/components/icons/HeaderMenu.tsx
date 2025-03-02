@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-export default function Menu() {
+export default function HeaderMenu() {
   const { fillColor } = useContext(ThemeContext)!;
 
   return (
