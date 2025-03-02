@@ -12,7 +12,11 @@ export default function Standard() {
   const [isSidebarActive, setisSidebarActive] = useState<boolean>(false);
 
   const [value, setValue] = useState<number | string>(0);
-  const [equation, setEquation] = useState({
+  const [equation, setEquation] = useState<{
+    operand1: number | null;
+    operator: string | null;
+    operand2: number | null;
+  }>({
     operand1: null,
     operator: null,
     operand2: null,
