@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-#fcf6e6: #fcf6e6;
+  --color-#30312a: #30312a;
+}
+* {
+  font-family: "Lexend", sans-serif;
+}
 html {
   font-size: 62.5%;
+}
+
+button,
+a {
+  cursor: pointer;
 }
