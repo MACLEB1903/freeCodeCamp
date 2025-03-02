@@ -8,6 +8,12 @@
 * {
   font-family: "Lexend", sans-serif;
 }
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
 html {
   font-size: 62.5%;
 }
