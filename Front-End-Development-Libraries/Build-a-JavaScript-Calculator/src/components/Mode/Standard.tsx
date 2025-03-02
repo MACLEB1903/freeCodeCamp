@@ -148,7 +148,7 @@ export default function Standard() {
             setHistoryActive={setHistoryActive}
             setisSidebarActive={setisSidebarActive}
           />
-          <div className="calculator flex flex-row h-[calc(100vh-5rem)] w-full">
+          <div className="calculator flex flex-row h-[calc(100svh-5rem)] w-full">
             <div className="display-keys-wrapper flex flex-col h-full flex-1">
               {/* Display */}
               <div className="display basis-[25%] p-[2rem] pt-[3rem] max-h-[30rem]">
@@ -168,7 +168,7 @@ export default function Standard() {
                 </h1>
               </div>
 
-              <div className="relative flex-1">
+              <div className="relative flex-1 basis-[75%]">
                 <div
                   className="keyboard flex-1 grid grid-cols-4 grid-rows-5 gap-[2rem] p-[2rem]  h-[100%] z-98"
                   style={{
