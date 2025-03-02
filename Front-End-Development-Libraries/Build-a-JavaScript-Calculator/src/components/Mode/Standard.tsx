@@ -168,7 +168,7 @@ export default function Standard() {
                 </h1>
               </div>
 
-              <div className="relative flex-1 h-[100%]">
+              <div className="relative flex-1">
                 <div
                   className="keyboard flex-1 grid grid-cols-4 grid-rows-5 gap-[2rem] p-[2rem]  h-[100%] z-98"
                   style={{
