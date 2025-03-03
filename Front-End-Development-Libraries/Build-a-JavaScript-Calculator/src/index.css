@@ -12,6 +12,7 @@
 html,
 body {
   overscroll-behavior: none;
+  overflow: hidden;
 }
 
 html {
@@ -19,21 +20,41 @@ html {
 }
 
 button,
-a {
+a,
+option,
+select {
   cursor: pointer;
 }
 
 aside {
-  animation: slideRight 0.5s;
+  animation: slideRight 0.3s;
 }
 
 .hisotry {
+  overflow: auto;
   animation: slideUp 0.3s;
 }
 
+.key {
+  color: var(--fill-color);
+  background-color: var(--background-color);
+}
+
+.key:active {
+  color: var(--background-color);
+  background-color: var(--fill-color);
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 @keyframes slideRight {
   0% {
-    transform: translateX(-3rem);
+    transform: translateX(-6rem);
   }
 
   100% {

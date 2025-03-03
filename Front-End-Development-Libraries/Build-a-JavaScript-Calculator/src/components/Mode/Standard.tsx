@@ -22,30 +22,33 @@ export default function Standard() {
     operand2: null,
   });
 
-  const keys = [
-    "DEL",
-    "%",
-    "+/-",
-    "/",
-    7,
-    8,
-    9,
-    "*",
-    4,
-    5,
-    6,
-    "-",
-    1,
-    2,
-    3,
-    "+",
-    ".",
-    0,
-    "=",
+  type Key = [string | number, string];
+
+  const keys: Key[] = [
+    ["CE", "clear"],
+    ["%", "modulo"],
+    ["+/-", "negative"],
+    ["/", "divide"],
+    [7, "seven"],
+    [8, "eight"],
+    [9, "nine"],
+    ["*", "multiply"],
+    [4, "four"],
+    [5, "five"],
+    [6, "six"],
+    ["-", "subtract"],
+    [1, "one"],
+    [2, "two"],
+    [3, "three"],
+    ["+", "add"],
+    [".", "decimal"],
+    [0, "zero"],
+    ["=", "equals"],
   ];
 
   const evaluate = ({ operand1, operator, operand2 }: any) => {
-    const total = eval(`${operand1} ${operator} ${operand2}`);
+    let total = eval(`${operand1} ${operator} ${operand2}`);
+    total = Number(total.toFixed(4));
     setHistory((prev) => [
       ...(prev ?? []),
       `${operand1} ${operator} ${operand2} = ${total}`,
@@ -56,25 +59,25 @@ export default function Standard() {
   function calculateEquation(key: string | number) {
     setEquation((prev) => {
       switch (key) {
-        case "DEL":
-          setValue(0);
+        case "CE":
+          setValue("0");
           return { operand1: null, operator: null, operand2: null };
 
         case "=":
           if (prev.operand1 != null && prev.operand2 != null && prev.operator) {
             const result = evaluate(prev);
-            setValue(result);
+            setValue(result.toString()); // Store result as string
             return { operand1: result, operator: null, operand2: null };
           }
           return prev;
 
         case "+/-":
-          if (prev.operator && prev.operand2 != null) {
-            const newVal = -prev.operand2;
+          if (prev.operator && prev.operand2 !== null) {
+            const newVal = (-Number(prev.operand2)).toString();
             setValue(newVal);
             return { ...prev, operand2: newVal };
-          } else if (prev.operand1 != null) {
-            const newVal = -prev.operand1;
+          } else if (prev.operand1 !== null) {
+            const newVal = (-Number(prev.operand1)).toString();
             setValue(newVal);
             return { ...prev, operand1: newVal };
           }
@@ -82,20 +85,15 @@ export default function Standard() {
 
         case ".":
           if (prev.operator) {
-            if (prev.operand2?.toString().includes(".")) return prev;
+            if (String(prev.operand2)?.includes(".")) return prev;
 
-            const newVal =
-              prev.operand2 != null
-                ? parseFloat(`${prev.operand2}.`)
-                : parseFloat("0.");
+            const newVal = prev.operand2 !== null ? prev.operand2 + "." : "0.";
             setValue(newVal);
             return { ...prev, operand2: newVal };
           } else {
-            if (prev.operand1?.toString().includes(".")) return prev;
-            const newVal =
-              prev.operand1 != null
-                ? parseFloat(`${prev.operand1}.`)
-                : parseFloat("0.");
+            if (String(prev.operand1)?.includes(".")) return prev;
+
+            const newVal = prev.operand1 !== null ? prev.operand1 + "." : "0.";
             setValue(newVal);
             return { ...prev, operand1: newVal };
           }
@@ -106,32 +104,45 @@ export default function Standard() {
             ["+", "-", "*", "/", "%"].includes(key)
           ) {
             if (
-              prev.operand1 != null &&
-              prev.operand2 != null &&
+              prev.operand1 !== null &&
+              prev.operand2 !== null &&
               prev.operator
             ) {
               const result = evaluate(prev);
-              setValue(result);
+              setValue(result.toString());
               return { operand1: result, operator: key, operand2: null };
             }
             return {
-              operand1: Number(value ?? prev.operand1),
+              operand1: prev.operand1 !== null ? prev.operand1 : "0",
               operator: key,
               operand2: null,
             };
           }
+
           if (typeof key === "number") {
             if (prev.operator) {
               const newVal =
-                prev.operand2 != null ? Number(`${prev.operand2}${key}`) : key;
+                prev.operand2 !== null
+                  ? prev.operand2 === "0"
+                    ? key.toString() // Prevent multiple leading zeros
+                    : prev.operand2.toString() + key
+                  : key.toString();
+
               setValue(newVal);
               return { ...prev, operand2: newVal };
             }
+
             const newVal =
-              prev.operand1 != null ? Number(`${prev.operand1}${key}`) : key;
+              prev.operand1 !== null
+                ? prev.operand1 === "0"
+                  ? key.toString() // Prevent multiple leading zeros
+                  : prev.operand1.toString() + key
+                : key.toString();
+
             setValue(newVal);
             return { ...prev, operand1: newVal };
           }
+
           return prev;
       }
     });
@@ -151,9 +162,9 @@ export default function Standard() {
           <div className="calculator flex flex-row h-[calc(100svh-5rem)] w-full">
             <div className="display-keys-wrapper flex flex-col h-full flex-1">
               {/* Display */}
-              <div className="display basis-[25%] p-[2rem] pt-[3rem] max-h-[30rem]">
+              <div className=" basis-[25%] p-[2rem] pt-[3rem] max-h-[30rem]">
                 <h2
-                  className="equation text-right text-4xl md:text-5xl lg:text-6xl"
+                  className=" equation text-right text-4xl md:text-5xl lg:text-6xl"
                   style={{ color: fillColor }}
                 >
                   {equation.operand1 ? equation.operand1 : 0}
@@ -161,6 +172,7 @@ export default function Standard() {
                   {equation.operand2}
                 </h2>
                 <h1
+                  id="display"
                   className="number-result text-8xl font-bold mt-[1rem] text-right lg:text-9xl"
                   style={{ color: fillColor }}
                 >
@@ -175,17 +187,23 @@ export default function Standard() {
                     backgroundColor: "#91c0aa",
                   }}
                 >
-                  {keys.map((key, index) => (
+                  {keys.map(([key, keyName], index) => (
                     <button
+                      id={keyName}
                       key={index}
-                      className={`p-4 bg-white font-black text-3xl rounded-2xl border-3 border-b-[5px] border-r-[5px] md:text-4xl lg:text-5xl xl:border-5 xl:border-b-[7px] xl:border-r-[7px] ${
+                      className={`key p-4 bg-white font-black text-3xl rounded-2xl border-3 border-b-[5px] border-r-[5px] md:text-4xl lg:text-5xl xl:border-5 xl:border-b-[7px] xl:border-r-[7px] ${
                         index === keys.length - 1
                           ? "col-span-2 bg-blue-500"
                           : ""
                       }`}
-                      style={{ color: fillColor, background: backgroundColor }}
+                      style={{
+                        "--fill-color": fillColor,
+                        "--background-color": backgroundColor,
+                      }}
                       value={key}
-                      onClick={() => calculateEquation(key)}
+                      onClick={(e) => {
+                        calculateEquation(key);
+                      }}
                     >
                       {key}
                     </button>
@@ -204,7 +222,7 @@ export default function Standard() {
 
         {/* History Panel */}
         <div
-          className="history hidden max-w-[40rem] min-w-[30rem] md:block h-full basis-[25%] overflow-scroll overflow-x-hidden"
+          className="hidden max-w-[40rem] min-w-[30rem] md:block h-full basis-[25%] overflow-auto overflow-x-hidden"
           style={{ backgroundColor: fillColor }}
         >
           <History history={history} />

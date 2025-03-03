@@ -1,12 +1,15 @@
 import React, { createContext, useState, ReactNode } from "react";
 
 type ThemeType = "light" | "dark";
+type ModeType = "Standard" | "Currency";
 
 type ThemeContextType = {
   theme: ThemeType;
   fillColor: string;
   backgroundColor: string;
+  mode: ModeType;
   setTheme: React.Dispatch<React.SetStateAction<ThemeType>>;
+  setMode: React.Dispatch<React.SetStateAction<ModeType>>;
 };
 
 const themePresets: Record<
@@ -29,6 +32,7 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<ThemeType>("light");
+  const [mode, setMode] = useState<ModeType>("Standard");
 
   const fillColor = themePresets[theme].fillColor;
   const backgroundColor = themePresets[theme].backgroundColor;
@@ -37,7 +41,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ThemeContext.Provider
-      value={{ theme, setTheme, fillColor, backgroundColor }}
+      value={{ theme, setTheme, fillColor, backgroundColor, mode, setMode }}
     >
       {children}
     </ThemeContext.Provider>

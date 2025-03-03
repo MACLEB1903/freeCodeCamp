@@ -15,7 +15,7 @@ export default function Header({
   setHistoryActive,
   setisSidebarActive,
 }: HeaderProps) {
-  const { fillColor } = useContext(ThemeContext)!;
+  const { fillColor, mode } = useContext(ThemeContext)!;
 
   return (
     <header className="flex flex-row h-[5rem] items-center px-[1rem]">
@@ -35,7 +35,7 @@ export default function Header({
         className="md:hidden"
         onClick={() => setHistoryActive((prev) => !prev)}
       >
-        <HistoryIcon />
+        {mode === "Standard" && <HistoryIcon />}
       </button>
     </header>
   );
