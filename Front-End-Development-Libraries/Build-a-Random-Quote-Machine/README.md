@@ -6,6 +6,7 @@ This is an application that displays random inpirational quotes and for each tim
 
 ![quotely preview](/src/assets/preview.png)
 
+
 ## Features
 
 - Generate and display random quotes.
