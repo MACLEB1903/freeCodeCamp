@@ -2,9 +2,11 @@
 
 This is a Number Validator project. This project demonstrates real-time phone number validation using JavaScript, allowing users to check if a number matches the correct format for US, Brazil, or the Philippines with dynamic UI updates.
 
+Live at: https://build-a-telephone-number-validator-fawn.vercel.app/
+
 ## Preview
 
-![number validatorpreview]()
+![number validatorpreview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/JavaScript-Algorithms-and-Data-Structures/Build-a-Telephone-Number-Validator/preview.png)
 
 ## Features
 
