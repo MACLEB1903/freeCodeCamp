@@ -35,19 +35,24 @@ html {
 }
 
 p {
-  font-size: 1.45rem;
   text-align: justify;
 }
 
+p,
+button,
+input {
+  font-size: 1.6rem;
+}
+
 .intro {
-  margin-bottom: 4.5rem;
+  margin-bottom: 3.5rem;
 }
 
 h2 {
   word-wrap: break-word;
   text-align: left;
   margin: 2rem 0;
-  font-size: 3rem;
+  font-size: clamp(3rem, 2.5vw, 4rem);
 }
 
 body {
