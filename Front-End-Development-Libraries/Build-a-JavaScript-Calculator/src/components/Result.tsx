@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-
 interface ResultProps {
   value: number | null;
   valueType: string;
@@ -14,14 +11,12 @@ export default function Result({
   convertedValue,
   convertedValueType,
 }: ResultProps) {
-  const { fillColor, backgroundColor } = useContext(ThemeContext)!;
-
   if (value === null || convertedValue === null) return null;
 
   return (
     <div
-      className="result-wrapper mt-[3rem] p-[1.5rem] rounded-xl"
-      style={{ background: fillColor, color: backgroundColor }}
+      className="result-wrapper flex-1 mt-[3rem] p-[1.5rem] rounded-xl"
+      style={{ backgroundColor: "#3078c6", color: "#fcf6e6" }}
     >
       <p className="text-[2rem]">
         {value} {valueType[0].toUpperCase() + valueType.slice(1)}

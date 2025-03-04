@@ -1,7 +1,7 @@
 import React, { createContext, useState, ReactNode } from "react";
 
 type ThemeType = "light" | "dark";
-type ModeType = "Standard" | "Currency";
+type ModeType = "Standard" | "Temperature" | string;
 
 type ThemeContextType = {
   theme: ThemeType;

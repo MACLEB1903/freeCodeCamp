@@ -6,7 +6,7 @@ import HistoryIcon from "./icons/History";
 
 interface HeaderProps {
   title: string;
-  setHistoryActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setHistoryActive?: React.Dispatch<React.SetStateAction<boolean>>;
   setisSidebarActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -33,7 +33,11 @@ export default function Header({
       </h1>
       <button
         className="md:hidden"
-        onClick={() => setHistoryActive((prev) => !prev)}
+        onClick={() => {
+          if (setHistoryActive !== undefined) {
+            setHistoryActive((prev) => !prev);
+          }
+        }}
       >
         {mode === "Standard" && <HistoryIcon />}
       </button>

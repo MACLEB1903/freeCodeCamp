@@ -7,10 +7,9 @@ import Result from "../Result";
 
 export default function Currency() {
   const { fillColor, backgroundColor } = useContext(ThemeContext)!;
-  const [isHistoryActive, setHistoryActive] = useState<boolean>(false);
   const [isSidebarActive, setisSidebarActive] = useState<boolean>(false);
 
-  const [value, setValue] = useState<number | null>(null);
+  const [value, setValue] = useState<number | null>(0);
   const [valueType, setValueType] = useState<
     "celsius" | "farenheit" | "kelvin"
   >("celsius");
@@ -49,11 +48,7 @@ export default function Currency() {
     <>
       {isSidebarActive && <Sidebar setisSidebarActive={setisSidebarActive} />}
       <section className="flex flex-col h-screen" style={{ color: fillColor }}>
-        <Header
-          title={"Currency"}
-          setHistoryActive={setHistoryActive}
-          setisSidebarActive={setisSidebarActive}
-        />
+        <Header title={"Temperature"} setisSidebarActive={setisSidebarActive} />
         <div className="p-[2rem] flex flex-col">
           <div className="input-dropdown-wrapper p-[0.5rem] flex flex-row">
             <input
@@ -88,23 +83,25 @@ export default function Currency() {
               ))}
             </select>
           </div>
-          <div className="result">
+          <div className="result flex flex-col md:flex-row md:gap-[1rem]">
             {["celsius", "farenheit", "kelvin"]
               .filter((type) => type !== valueType)
               .map((type) => (
-                <Result
-                  key={type}
-                  value={value}
-                  valueType={valueType}
-                  convertedValue={
-                    type === "celsius"
-                      ? convertedCelsius
-                      : type === "farenheit"
-                      ? convertedFahrenheit
-                      : convertedKelvin
-                  }
-                  convertedValueType={type[0].toUpperCase() + type.slice(1)}
-                />
+                <>
+                  <Result
+                    key={type}
+                    value={value}
+                    valueType={valueType}
+                    convertedValue={
+                      type === "celsius"
+                        ? convertedCelsius
+                        : type === "farenheit"
+                        ? convertedFahrenheit
+                        : convertedKelvin
+                    }
+                    convertedValueType={type[0].toUpperCase() + type.slice(1)}
+                  />
+                </>
               ))}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 import Header from "../Header";
@@ -13,9 +13,11 @@ export default function Standard() {
 
   const [value, setValue] = useState<number | string>(0);
   const [equation, setEquation] = useState<{
-    operand1: number | null;
-    operator: string | null;
-    operand2: number | null;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    operand1: any;
+    operator: any;
+    operand2: any;
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   }>({
     operand1: null,
     operator: null,
@@ -46,7 +48,15 @@ export default function Standard() {
     ["=", "equals"],
   ];
 
-  const evaluate = ({ operand1, operator, operand2 }: any) => {
+  const evaluate = ({
+    operand1,
+    operator,
+    operand2,
+  }: {
+    operand1: number | null;
+    operator: string | null;
+    operand2: number | null;
+  }) => {
     let total = eval(`${operand1} ${operator} ${operand2}`);
     total = Number(total.toFixed(4));
     setHistory((prev) => [
@@ -66,7 +76,7 @@ export default function Standard() {
         case "=":
           if (prev.operand1 != null && prev.operand2 != null && prev.operator) {
             const result = evaluate(prev);
-            setValue(result.toString()); // Store result as string
+            setValue(result.toString());
             return { operand1: result, operator: null, operand2: null };
           }
           return prev;
@@ -109,8 +119,12 @@ export default function Standard() {
               prev.operator
             ) {
               const result = evaluate(prev);
-              setValue(result.toString());
-              return { operand1: result, operator: key, operand2: null };
+              setValue(result.toString().slice(0, 10));
+              return {
+                operand1: result.toString().slice(0, 10),
+                operator: key,
+                operand2: null,
+              };
             }
             return {
               operand1: prev.operand1 !== null ? prev.operand1 : "0",
@@ -123,9 +137,11 @@ export default function Standard() {
             if (prev.operator) {
               const newVal =
                 prev.operand2 !== null
-                  ? prev.operand2 === "0"
-                    ? key.toString() // Prevent multiple leading zeros
-                    : prev.operand2.toString() + key
+                  ? String(prev.operand1).length < 10
+                    ? prev.operand2 === 0
+                      ? key.toString()
+                      : prev.operand2.toString() + key
+                    : prev.operand2
                   : key.toString();
 
               setValue(newVal);
@@ -134,9 +150,11 @@ export default function Standard() {
 
             const newVal =
               prev.operand1 !== null
-                ? prev.operand1 === "0"
-                  ? key.toString() // Prevent multiple leading zeros
-                  : prev.operand1.toString() + key
+                ? String(prev.operand1).length < 10
+                  ? prev.operand1 === 0
+                    ? key.toString()
+                    : prev.operand1.toString() + key
+                  : prev.operand1
                 : key.toString();
 
             setValue(newVal);
@@ -184,7 +202,7 @@ export default function Standard() {
                 <div
                   className="keyboard flex-1 grid grid-cols-4 grid-rows-5 gap-[2rem] p-[2rem]  h-[100%] z-98"
                   style={{
-                    backgroundColor: "#91c0aa",
+                    backgroundColor: "#3078c6",
                   }}
                 >
                   {keys.map(([key, keyName], index) => (
@@ -196,12 +214,14 @@ export default function Standard() {
                           ? "col-span-2 bg-blue-500"
                           : ""
                       }`}
-                      style={{
-                        "--fill-color": fillColor,
-                        "--background-color": backgroundColor,
-                      }}
+                      style={
+                        {
+                          "--fill-color": fillColor,
+                          "--background-color": backgroundColor,
+                        } as React.CSSProperties
+                      }
                       value={key}
-                      onClick={(e) => {
+                      onClick={() => {
                         calculateEquation(key);
                       }}
                     >
@@ -211,7 +231,7 @@ export default function Standard() {
                 </div>
 
                 {isHistoryActive && (
-                  <div className="absolute top-0 z-99 h-[100%] w-[100%] md:hidden">
+                  <div className="absolute top-0 z-99 h-[100%] w-[100%] sml-history md:hidden">
                     <History history={history} />
                   </div>
                 )}

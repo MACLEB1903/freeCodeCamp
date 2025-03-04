@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Standard from "./components/Mode/Standard";
-import Currency from "./components/Mode/Currency";
+import Temperature from "./components/Mode/Temperature";
 import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Standard />} />
-          <Route path="/currency" element={<Currency />} />
+          <Route path="/temperature" element={<Temperature />} />
         </Routes>
       </Router>
     </ThemeProvider>

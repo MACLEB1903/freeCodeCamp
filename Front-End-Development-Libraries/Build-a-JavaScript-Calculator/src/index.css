@@ -30,8 +30,15 @@ aside {
   animation: slideRight 0.3s;
 }
 
-.hisotry {
+section {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.history {
   overflow: auto;
+}
+
+.sml-history {
   animation: slideUp 0.3s;
 }
 
@@ -44,6 +51,12 @@ aside {
   color: var(--background-color);
   background-color: var(--fill-color);
 }
+
+.number-result {
+  word-break: break-word;
+  text-align: right;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -52,6 +65,7 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 @keyframes slideRight {
   0% {
     transform: translateX(-6rem);
@@ -69,5 +83,15 @@ input[type="number"] {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
   }
 }
