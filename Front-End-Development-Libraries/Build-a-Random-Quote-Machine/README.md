@@ -1,8 +1,6 @@
 # quotely - a freeCodeCamp project
 
-This is an application that displays random inpirational quotes and for each time a user click the arrow (->) button a random quote will be fetched.
-
-Live at: https://build-a-random-quote-machine-phi.vercel.app/
+This is an application that displays random inpirational quotes and for each time a user click the arrow (->) button a random quote will be fetched. Live at: https://build-a-random-quote-machine-phi.vercel.app/
 
 ## Preview
 
