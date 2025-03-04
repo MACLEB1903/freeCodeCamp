@@ -1,4 +1,4 @@
-# Build a Telephone Number Validator - a freeCodeCamp project
+# numsure - a freeCodeCamp project
 
 This is a Number Validator project. This project demonstrates real-time phone number validation using JavaScript, allowing users to check if a number matches the correct format for US, Brazil, or the Philippines with dynamic UI updates.
 
