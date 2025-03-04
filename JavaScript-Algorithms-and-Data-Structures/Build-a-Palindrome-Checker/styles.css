@@ -48,10 +48,10 @@ label {
 
 input[type="text"] {
   flex: 1;
+  padding-right: 1rem;
 }
 
 button {
-  padding-left: 1rem;
   cursor: pointer;
 }
 
