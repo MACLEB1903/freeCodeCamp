@@ -30,7 +30,7 @@ export default function Image() {
 
   return (
     <>
-      <div className="absolute top-[0] left-[0] right-[0] bottom-[0] h-[100vh] w-[100vw] z-[-1]">
+      <div className="text-wrapper absolute top-[0] left-[0] right-[0] bottom-[0] h-[100vh] w-[100vw] z-[-1]">
         <img
           src={imgSrc}
           className="absolute h-[100%] w-[100%] object-cover"

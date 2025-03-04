@@ -10,8 +10,9 @@ export default function Light() {
 
   return (
     <>
-      <div>
+      <div className="text-wrapper">
         <h1
+          id={"text"}
           style={{ color: fillColor }}
           className="font-ultra text-5xl font-ultra leading-[4.25rem] tracking-[0.1rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl lg:text-justify lg:leading-[5.5rem]"
         >

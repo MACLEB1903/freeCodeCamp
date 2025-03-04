@@ -13,7 +13,7 @@ export default function Dark() {
 
   return (
     <>
-      <div>
+      <div className="text-wrapper">
         <h1
           id="text"
           className="text-white text-5xl font-poppins font-bold leading-[4rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl lg:text-justify lg:leading-[5.5rem]"
