@@ -4,6 +4,8 @@ calcify is a multi-functional calculator and temperature converter with history 
 
 ## Preview
 
+![calcify preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-JavaScript-Calculator/src/assets/preview.png)
+
 ## Features
 
 - Calculate the equation inputted by the user.
