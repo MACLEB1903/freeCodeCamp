@@ -4,7 +4,7 @@ This is an application that displays random inpirational quotes and for each tim
 
 ## Preview
 
-![quotely preview](/src/assets/preview.png)
+![quotely preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-Random-Quote-Machine/src/assets/preview.png)
 
 
 ## Features
