@@ -26,11 +26,12 @@ html {
 }
 
 body {
+  padding: 3rem;
   height: 100vh;
 }
 
 h1 {
-  font-size: clamp(5rem, 6vw, 7rem);
+  font-size: clamp(5.5rem, 5vw, 7rem);
   font-weight: 900;
 }
 
@@ -75,8 +76,7 @@ button:hover {
 
 #info,
 label {
-  width: 35%;
-  min-width: 35rem;
+  width: 100%;
   max-width: 50rem;
 }
 
@@ -92,9 +92,23 @@ input {
   display: none;
 }
 
+@media screen and (max-width: 900px) {
+  body {
+    margin-top: 10rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin-top: 8rem;
+    height: auto;
+  }
+}
+
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 
   #info,

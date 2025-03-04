@@ -6,7 +6,7 @@ Live at: https://build-a-palindrome-checker.vercel.app/
 
 ## Preview
 
-![palindrome checker preview](https://github.com/MACLEB1903/freeCodeCamp/tree/main/JavaScript-Algorithms-and-Data-Structures/Build-a-Palindrome-Checker/preview.png)
+![palindrome checker preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/JavaScript-Algorithms-and-Data-Structures/Build-a-Palindrome-Checker/preview.png)
 
 ## Features
 
