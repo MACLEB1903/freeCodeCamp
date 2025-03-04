@@ -86,6 +86,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     resultWrapper.querySelector("span").textContent =
       countryInfo.icons[resultIcon];
     resultWrapper.querySelector("p").textContent = resultMessage;
+
+    tipResultContainer.classList.add("fade-in");
+
+    setTimeout(() => {
+      tipResultContainer.classList.remove("fade-in");
+    }, 500);
   }
 
   const toggleInputDlt = () => {
