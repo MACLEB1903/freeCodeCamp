@@ -2,11 +2,11 @@
 
 This is a feedback survey for the freeCodeCamp survey project. It utilizes basic HTML elements like select inputs and text fields, with styling applied through CSS.
 
-Live at:
+Live at: https://survey-form-psi-swart.vercel.app/
 
 ## Preview
 
-![suvey form preview](/preview.png)
+![suvey form preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Responsive-Web-Design/Survey-Form/preview.png)
 
 ## Features
 
