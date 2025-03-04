@@ -1,6 +1,8 @@
 # calcify - a freeCodeCamp project
 
-calcify is a multi-functional calculator and temperature converter with history tracking, dark/light mode, and seamless navigation for quick calculations and conversions. Live at: https://build-a-javascript-calculator-green.vercel.app/
+calcify is a multi-functional calculator and temperature converter with history tracking, dark/light mode, and seamless navigation for quick calculations and conversions.
+
+Live at: https://build-a-javascript-calculator-green.vercel.app/
 
 ## Preview
 

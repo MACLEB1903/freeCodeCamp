@@ -1,11 +1,12 @@
 # quotely - a freeCodeCamp project
 
-This is an application that displays random inpirational quotes and for each time a user click the arrow (->) button a random quote will be fetched. Live at: https://build-a-random-quote-machine-phi.vercel.app/
+This is an application that displays random inpirational quotes and for each time a user click the arrow (->) button a random quote will be fetched.
+
+Live at: https://build-a-random-quote-machine-phi.vercel.app/
 
 ## Preview
 
 ![quotely preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-Random-Quote-Machine/src/assets/preview.png)
-
 
 ## Features
 
@@ -32,4 +33,3 @@ This project is a submission for freeCodeCamp's [Build a Random Quote Machine](h
 [DummyJSON](https://dummyjson.com/) is a free fake REST API that provides placeholder JSON data for development, testing, and building applications without the need for a backend setup.
 
 [Lorem Picsum](picsum.photos) is a free image placeholder service. Just add the width and height to the URL, and it generates a random image instantly.
-
