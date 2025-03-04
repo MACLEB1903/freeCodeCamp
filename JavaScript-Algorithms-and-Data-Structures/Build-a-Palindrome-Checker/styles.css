@@ -1,103 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
- * {
-		font-family: "Poppins", sans-serif;
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-	.center-wrapper {
-		justify-content: center;
-		align-items: center;
-	}
+.center-wrapper {
+  justify-content: center;
+  align-items: center;
+}
 
-	.flex-col {
-		display: flex;
-		flex-direction: column;
-	}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
 
-	.flex-row {
-		display: flex;
-		flex-direction: row;
-	}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
 
-	html {
-		font-size: 62.5%;
-	}
+html {
+  font-size: 62.5%;
+}
 
-	body {
-		height: 100vh;
-		min-height: 50rem;
-	}
+body {
+  height: 100vh;
+}
 
-	h1 {
-		font-size: 5rem;
-		font-weight: 900;
-	}
+h1 {
+  font-size: clamp(5rem, 6vw, 7rem);
+  font-weight: 900;
+}
 
-	h1 span {
-		margin-left: -6px;
-	}
+h1 span {
+  margin-left: -6px;
+}
 
-	label {
-		width: 35%;
-		position: relative;
-		max-width: 50rem;
-		min-width: 35rem;
-	}
+label {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: #cfcfdf;
+  border-radius: 99rem;
+}
 
-	input[type="text"] {
-		margin-top: 2rem;
-		height: 3.7rem;
-		width: 100%;
-		border-radius: 1.8rem;
-		border: none;
-		background: #cfcfdf;
-		padding-left: 1.5rem;
-		outline: none;
-	}
+input[type="text"] {
+  flex: 1;
+}
 
-	button {
-		position: absolute;
-		right: 1.5%;
-		top: 35%;
-		border-radius: 50%;
-		height: 3.7rem;
-		width: 3.7rem;
-		border: none;
-		background: transparent;
-		cursor: pointer;
-	}
+button {
+  padding-left: 1rem;
+  cursor: pointer;
+}
 
-	button:hover {
-		color: #0070de;
-	}
+#check-btn,
+input[type="text"] {
+  outline: none;
+  border: none;
+  background: transparent;
+}
 
-	#info {
-		padding: 2rem;
-		border-radius: 0.7rem;
-		margin-top: 3rem;
-		width: 34.5%;
-		max-width: 50rem;
-		height: auto;
-		background:#a6c7ff;
-		min-width: 35rem;
-	}
+button:hover {
+  color: #0070de;
+}
 
-	#info p {
-		font-size: 1.4rem;
-	}
+#info {
+  padding: 2rem;
+  border-radius: 0.7rem;
+  margin-top: 3rem;
+  height: auto;
+  background: #a6c7ff;
+}
 
-	.hide {
-		display: none;
-	}
+#info,
+label {
+  width: 35%;
+  min-width: 35rem;
+  max-width: 50rem;
+}
 
-	@media screen and (max-width: 480px) {
-		h1 {
-			font-size: 4rem;
-		}
+#info p {
+  overflow-wrap: break-word;
+}
+#info p,
+input {
+  font-size: clamp(1.6rem, 2vw, 1.7rem);
+}
 
-		#info, label {
-			min-width: 30rem;
-		}
-	}
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  #info,
+  label {
+    min-width: 30rem;
+  }
+}
