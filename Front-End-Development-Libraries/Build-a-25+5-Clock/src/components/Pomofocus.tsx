@@ -1,33 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+import Focus from "./Focus";
+import Pomodoro from "./Pomodoro";
 
 import Navigation from "./Navigation";
 
-export default function Home() {
-  const [time, setTime] = useState({
-    hours: String(new Date().getHours()).padStart(2, "0"),
-    minutes: String(new Date().getMinutes()).padStart(2, "0"),
-  });
+export default function Pomofocus() {
+  const { theme, mode } = useContext(ThemeContext)!;
 
-  const [showColon, setShowColon] = useState(true);
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [task, setTask] = useState<string | undefined>(undefined);
 
   const textRef = useRef<HTMLTextAreaElement | null>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const time = new Date();
-
-      setTime({
-        hours: String(time.getHours()).padStart(2, "0"),
-        minutes: String(time.getMinutes()).padStart(2, "0"),
-      });
-
-      setShowColon((prev) => !prev);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     if (isTyping && textRef.current) {
@@ -36,7 +20,9 @@ export default function Home() {
   }, [isTyping]);
 
   return (
-    <section className="bg-[black] text-white flex flex-col p-[3rem] h-[100svh] w-[100vw]">
+    <section
+      className={`flex flex-col p-[3rem] h-[100svh] w-[100vw] ${theme} transition-opacity ease-in duration-700 opacity-100`}
+    >
       <div className="time-wrapper flex-1 flex flex-col justify-center items-center">
         {!isTyping && (
           <button
@@ -66,11 +52,8 @@ export default function Home() {
             className="task text-[clamp(3.5rem,5vw,6rem)] text-center outline-none resize-none h-[1lh] md:h-[1lh] text-zinc-500 truncate"
           />
         )}
-        <h2 className="time text-[clamp(8rem,10vw,15rem)] text-center">
-          {time.hours}
-          {showColon ? ":" : " "}
-          {time.minutes}
-        </h2>
+        {mode === "pomodoro" && <Pomodoro />}
+        {mode === "focus" && <Focus />}
       </div>
       <Navigation />
     </section>

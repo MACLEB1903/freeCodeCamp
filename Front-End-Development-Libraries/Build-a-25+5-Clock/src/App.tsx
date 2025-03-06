@@ -1,10 +1,10 @@
-import Home from "../src/components/Home";
-
+import Pomofocus from "./components/Pomofocus";
+import { ThemeProvider } from "./context/ThemeContext";
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <ThemeProvider>
+      <Pomofocus />
+    </ThemeProvider>
   );
 }
 
