@@ -43,7 +43,7 @@ export const PomodoroContext = createContext<PomodoroType | undefined>(
 export const PomodoroProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<SessionType>("default");
 
-  const [activeButton, setActiveButton] = useState<string>("session-length");
+  const [activeButton, setActiveButton] = useState<string>("session-label");
 
   const buttonDisplay = buttonsThemes[session];
 
