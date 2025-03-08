@@ -1,9 +1,11 @@
 "use client";
 
+import { useContext, useEffect } from "react";
+
+import { ThemeContext } from "../context/ThemeContext";
+
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
-import { ThemeContext } from "../context/ThemeContext";
-import { useContext, useEffect } from "react";
 
 const variants: Variants = {
   normal: {
@@ -51,9 +53,9 @@ interface RocketProps extends React.SVGAttributes<SVGSVGElement> {
   stroke?: string;
 }
 
-const Rocket = ({ width = 30, height = 30, strokeWidth = 2 }: RocketProps) => {
+const Rocket = ({ width = 27, height = 27, strokeWidth = 2 }: RocketProps) => {
   const controls = useAnimation();
-  const { fillColor, mode } = useContext(ThemeContext)!;
+  const { fillColor, mode, buttonColor } = useContext(ThemeContext)!;
 
   useEffect(() => {
     if (mode === "focus") {
@@ -88,7 +90,7 @@ const Rocket = ({ width = 30, height = 30, strokeWidth = 2 }: RocketProps) => {
         height={height}
         viewBox="0 0 24 24"
         fill="none"
-        stroke={fillColor}
+        stroke={mode === "focus" ? buttonColor : fillColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

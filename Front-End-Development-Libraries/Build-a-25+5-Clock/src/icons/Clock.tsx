@@ -1,5 +1,10 @@
 "use client";
 
+import { useContext } from "react";
+
+import { ThemeContext } from "../context/ThemeContext";
+import { TimerContext } from "../context/TimerContext";
+
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 
@@ -30,11 +35,11 @@ const Clock = ({
   width = 28,
   height = 28,
   strokeWidth = 2,
-  stroke = "#ffffff",
   ...props
 }: ClockProps) => {
   const controls = useAnimation();
-
+  const { fillColor, mode, buttonColor } = useContext(ThemeContext)!;
+  const { isPomodoroRunning, isBreakRunning } = useContext(TimerContext)!;
   return (
     <div
       style={{
@@ -54,7 +59,7 @@ const Clock = ({
         height={height}
         viewBox="0 0 24 24"
         fill="none"
-        stroke={stroke}
+        stroke={mode === "pomodoro" ? buttonColor : fillColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -64,7 +69,7 @@ const Clock = ({
         <motion.polyline
           points="12 6 12 12 8 14"
           variants={clockHandVariants}
-          animate={controls}
+          animate={isPomodoroRunning || isBreakRunning ? "animate" : "normal"}
           initial="normal"
         />
       </svg>

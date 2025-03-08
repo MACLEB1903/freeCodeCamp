@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState, useContext } from "react";
+
 import { ThemeContext } from "../context/ThemeContext";
+import { TimerContext } from "../context/TimerContext";
+
 import Focus from "./Focus";
 import Pomodoro from "./Pomodoro";
-
 import Navigation from "./Navigation";
 
 export default function Pomofocus() {
   const { theme, mode } = useContext(ThemeContext)!;
+  const { isBreakRunning, isPomodoroRunning } = useContext(TimerContext)!;
 
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [task, setTask] = useState<string | undefined>(undefined);
@@ -33,8 +36,11 @@ export default function Pomofocus() {
                 textRef.current.focus();
               }
             }}
+            disabled={isBreakRunning || isPomodoroRunning}
           >
-            {task ? task : "What do you want to focus?"}
+            {isBreakRunning
+              ? "Time for a break!"
+              : task || "What do you want to focus?"}
           </button>
         )}
         {isTyping && (
@@ -52,8 +58,8 @@ export default function Pomofocus() {
             className="task text-[clamp(3.5rem,5vw,6rem)] text-center outline-none resize-none h-[1lh] md:h-[1lh] text-zinc-500 truncate"
           />
         )}
-        {mode === "pomodoro" && <Pomodoro />}
         {mode === "focus" && <Focus />}
+        {mode === "pomodoro" && <Pomodoro />}
       </div>
       <Navigation />
     </section>

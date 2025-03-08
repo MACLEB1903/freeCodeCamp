@@ -1,9 +1,11 @@
 "use client";
 
+import { useContext } from "react";
+
+import { ThemeContext } from "../context/ThemeContext";
+
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
-import { ThemeContext } from "../context/ThemeContext";
-import { useContext } from "react";
 
 const starVariants: Variants = {
   normal: {

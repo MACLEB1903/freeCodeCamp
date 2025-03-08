@@ -1,9 +1,17 @@
-import Pomofocus from "./components/Pomofocus";
 import { ThemeProvider } from "./context/ThemeContext";
+import { PomodoroProvider } from "./context/PomodoroContext";
+import { TimerProvider } from "./context/TimerContext";
+
+import Pomofocus from "./components/Pomofocus";
+
 function App() {
   return (
     <ThemeProvider>
-      <Pomofocus />
+      <PomodoroProvider>
+        <TimerProvider>
+          <Pomofocus />
+        </TimerProvider>
+      </PomodoroProvider>
     </ThemeProvider>
   );
 }

@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Focus() {
+  const { fillColor } = useContext(ThemeContext)!;
   const [time, setTime] = useState({
     hours: String(new Date().getHours()).padStart(2, "0"),
     minutes: String(new Date().getMinutes()).padStart(2, "0"),
@@ -24,7 +27,10 @@ export default function Focus() {
   }, []);
 
   return (
-    <h2 className="time-count text-[clamp(8rem,10vw,15rem)] text-center">
+    <h2
+      className="time-count text-[clamp(8rem,10vw,15rem)] text-center"
+      style={{ color: fillColor }}
+    >
       {time.hours}
       {showColon ? ":" : " "}
       {time.minutes}

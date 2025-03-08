@@ -13,17 +13,14 @@ html {
   font-family: "Funnel Display", sans-serif;
 }
 .dark {
-  color: #f0eee7;
   background: #131313;
 }
 
 .light {
-  color: #131313;
   background: #f0eee7;
 }
 
 .dark-gradient {
-  color: #f0eee7;
   background: linear-gradient(
     299deg,
     #004d78,
@@ -50,7 +47,6 @@ html {
 }
 
 .light-gradient {
-  color: #f0eee7;
   background: linear-gradient(
     299deg,
     #fcfefd,
