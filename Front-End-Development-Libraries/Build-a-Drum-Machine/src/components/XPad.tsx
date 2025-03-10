@@ -186,10 +186,7 @@ export default function Xpad() {
   }
 
   return (
-    <section
-      id="drum-machine "
-      className="flex-1 flex flex-col-reverse max-w-full bg-[#121212] p-[2.5rem] gap-[2rem] md:p-[3rem] md:gap-[3rem] xl:flex-row"
-    >
+    <section className="flex-1 flex flex-col-reverse max-w-full bg-[#121212] p-[2.5rem] gap-[2rem] md:p-[3rem] md:gap-[3rem] xl:flex-row overflow-hidden">
       <div className="xpad bg-[#282828] grid grid-cols-3 grid-rows-3 flex-1 p-[2rem] gap-[1.5rem] md:p-[3rem]  md:gap-[3rem] ">
         {keys.map((key, index) => (
           <button
