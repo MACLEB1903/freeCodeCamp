@@ -244,7 +244,14 @@ export default function Xpad() {
           </div>
         </div>
 
-        <div className="click-history  rounded-lg flex flex-row overflow-auto bg-[#282828] mt-[2rem] max-h-[calc(100svh-20rem)] gap-[1rem] py-[1rem] px-[1.5rem]   md:flex md:flex-row xl:flex xl:flex-col xl:gap-[1.5rem] 2xl:grid 2xl:grid-cols-3 2xl:p-[1.5rem]">
+        <div
+          className={`click-history  rounded-lg flex flex-row overflow-auto bg-[#282828] mt-[2rem] max-h-[calc(100svh-20rem)] gap-[1rem] py-[1rem] px-[1.5rem] 
+        md:flex md:flex-row xl:flex xl:flex-col xl:gap-[1.5rem]  ${
+          project.audioTitles.length > 0
+            ? "2xl:grid 2xl:grid-cols-3 2xl:p-[1.5rem]"
+            : ""
+        }`}
+        >
           {project.audioTitles.length < 1 ? (
             <p className="text-white text-[2rem] py-[0.5rem] px-[1rem]">
               Try to press the pad.
