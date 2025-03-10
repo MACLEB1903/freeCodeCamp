@@ -2,9 +2,11 @@
 
 pomofocus is a Focus & Pomodoro timer that includes time breaks and theme modes for a customizable productivity experience, designed to help improve focus and concentration.
 
-gi## Preview
+Live at: https://build-a-25-5-clock-two.vercel.app/
 
-![pofocus preview]()
+## Preview
+
+![pofocus preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-25%2B5-Clock/src/assets/preview.png)
 
 ## Features
 
