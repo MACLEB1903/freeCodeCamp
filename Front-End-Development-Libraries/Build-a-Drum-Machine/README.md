@@ -6,7 +6,7 @@ Live at: https://build-a-drum-machine-eight.vercel.app/
 
 ## Preview
 
-![xbeat preview]()
+![xbeat preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-Drum-Machine/public/preview.png)
 
 ## Features
 
