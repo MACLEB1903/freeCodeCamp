@@ -8,7 +8,7 @@ export default function App() {
   return (
     <ProjectsProvider>
       <div
-        className="flex flex-col w-[100vw] h-[100svh]  relative"
+        className="flex flex-col w-[100vw] h-[100svh]  relative min-h-[75rem]"
         id="drum-machine"
       >
         <div className="flex-1 flex flex-col h-[calc(100%-6rem)] md:flex-row ">

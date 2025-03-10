@@ -38,7 +38,8 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
 
     audioHrefs.forEach((href, index) => {
       const timeoutId = setTimeout(() => {
-        const audio = new Audio(`src/assets/drum_audios/${href}`);
+        const audio = new Audio(`/drum_audios/${href}`);
+
         audio.play();
         audioElements.push(audio);
       }, index * 250);

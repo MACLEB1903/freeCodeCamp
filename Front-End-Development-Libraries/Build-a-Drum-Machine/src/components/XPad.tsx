@@ -149,7 +149,7 @@ export default function Xpad() {
         });
         setPlayingIndex(index);
 
-        const audio = new Audio(`src/assets/drum_audios/${href}`);
+        const audio = new Audio(`/drum_audios/${href}`);
         audio.play();
         playingAudiosRef.current.push(audio);
         if (index === project.audioHrefs.length - 1)
@@ -216,7 +216,7 @@ export default function Xpad() {
               }}
               id={key}
               className="clip"
-              src={`src/assets/drum_audios/${drumsAudio[index]}`}
+              src={`/drum_audios/${drumsAudio[index]}`}
             />
           </button>
         ))}
