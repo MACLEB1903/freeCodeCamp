@@ -1,13 +1,80 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="text-white text-[62.5%] touch-manipulation overscroll-none"
+>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Markdown Previewer</title>
+    <style>
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      h2 {
+        font-size: 3.25rem;
+      }
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      h4 {
+        font-size: 2.75rem;
+      }
+
+      h5 {
+        font-size: 2.5rem;
+      }
+
+      h6 {
+        font-size: 2.25rem;
+      }
+
+      p,
+      ul,
+      li,
+      textarea,
+      code {
+        font-size: 1.8rem;
+      }
+
+      ol,
+      li,
+      ul {
+        list-style-type: circle;
+        list-style-position: inside;
+      }
+
+      hr {
+        height: 0.15rem;
+        background: white;
+        color: white;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+      button {
+        cursor: pointer;
+      }
+
+      code {
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      #preview * {
+        margin-bottom: 2rem;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   </body>
 </html>

@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# Markdown Previewer - a freeCodeCamp project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a markdown previewer where users can write raw text using Markdown syntax, then see the formatted output instantly.
 
-Currently, two official plugins are available:
+Live at: https://build-a-markdown-previewer-chi.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview
 
-## Expanding the ESLint configuration
+![markdown preview](/public/preview.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Every time a character is entered in the editor, the preview updates in real-time.
+- The word count and character count update dynamically as users type.
+- The editor automatically converts input into Markdown and renders it in the preview.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Dependencies & Core Technologies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- HTML: The foundation for structuring web content.
+- CSS: Styles and enhances the appearance of web pages.
+- TypeScript: Superset of JavaScript for static typing.
+- React: JavaScript library for building user interfaces.
+- ReactDOM: Enables React to interact with the DOM.
+- Tailwind CSS / Vite: Utility-first CSS framework and modern frontend tooling.
+- Google Fonts: Offers custom typography to enhance UI design.
+- Google Icons: Icon set for a visually appealing interface.
+- React Markdown - Renders Markdown as React elements with customization and plugin support.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Credits
+
+This project is a submission for freeCodeCamp's [Build a Markdown Previewer](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-markdown-previewer) Project as part of [Front End Development Libraries Certification](https://www.freecodecamp.org/learn/front-end-development-libraries/).
+
+[FreeCodeCamp](https://www.freecodecamp.org/) is a nonprofit organization that offers a comprehensive web development curriculum and certifications. The Frontend Certification focuses on frontend libraries and frameworks like React, and it covers various topics including HTML, CSS, JavaScript, and more.
+
+Typography and icons are provided by [Google Fonts](https://fonts.google.com/) and [Google Icons](https://fonts.google.com/icons).
