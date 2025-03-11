@@ -6,7 +6,7 @@ Live at: https://build-a-markdown-previewer-chi.vercel.app/
 
 ## Preview
 
-![markdown preview](/public/preview.png)
+![markdown preview](https://raw.githubusercontent.com/MACLEB1903/freeCodeCamp/refs/heads/main/Front-End-Development-Libraries/Build-a-Markdown-Previewer/public/preview.png)
 
 ## Features
 

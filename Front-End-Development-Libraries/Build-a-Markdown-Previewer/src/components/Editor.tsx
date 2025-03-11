@@ -30,7 +30,7 @@ export default function Editor() {
         </div>
       )}
 
-      <div className=" md:hidden fixed bottom-[1.5rem] right-[2rem]">
+      <div className=" lg:hidden fixed bottom-[1.5rem] right-[1.5rem]">
         {!isShowingPreview && (
           <button
             id="show-preview-btn"
