@@ -1,5 +1,13 @@
 {
   "name": "fcc-learn-npm-package-json",
+  "author": "MARCEL EBALLAR",
+  "description": "This is a boilerplate for freecodecamp Back End Development and APIs Project.",
+  "keywords": [
+    "freecodecamp",
+    "Back End Development and APIs"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
   "dependencies": {
     "express": "^4.14.0"
   },
